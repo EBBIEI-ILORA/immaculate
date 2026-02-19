@@ -150,42 +150,114 @@
       footer p { font-size: 0.8rem; color: var(--gray); letter-spacing: 1px; margin-bottom: 0.8rem; }
       .footer-link { color: var(--gold); text-decoration: none; font-size: 0.85rem; letter-spacing: 1px; font-weight: 500; transition: color 0.3s; }
       .footer-link:hover { color: var(--dark); }
+      @media (max-width: 1024px) {
+        .traction-grid { grid-template-columns: repeat(2,1fr); }
+        .metrics-grid { grid-template-columns: repeat(2,1fr); }
+        .met-secondary { grid-template-columns: repeat(3,1fr); }
+      }
       @media (max-width: 900px) {
         .hero-h1 { font-size: 2.8rem; }
         .problem-grid, .sol-grid, .bm-grid, .comp-grid, .gtm-grid, .ask-grid { grid-template-columns: 1fr; }
-        .market-grid, .traction-grid, .fin-grid, .roi-grid, .metrics-grid { grid-template-columns: 1fr 1fr; }
+        .market-grid, .fin-grid, .roi-grid { grid-template-columns: 1fr 1fr; }
+        .traction-grid, .metrics-grid { grid-template-columns: 1fr 1fr; }
+        .met-secondary { grid-template-columns: repeat(3,1fr); }
         .team-grid { grid-template-columns: repeat(2,1fr); }
         .hero-stats, .market-stats, .gtm-stats { grid-template-columns: 1fr; }
         .sec-inner { padding: 5rem 1.5rem; }
         .step4-wrap { grid-template-columns: 1fr; }
-        .step4-photo { min-height: unset; height: auto; object-fit: contain; }
+        .step4-photo { min-height: unset; height: 300px; object-fit: cover; }
         .step4-steps { grid-template-columns: 1fr 1fr; }
+        .ask-left h2 { font-size: 2rem; }
       }
       @media (max-width: 600px) {
-        .nav-inner { padding: 0 1.2rem; }
-        .nav-inner img { max-height: 44px; }
-        .nav-btn { font-size: 0.7rem; padding: 0.45rem 1rem; letter-spacing: 1px; }
-        .hero { padding: 7rem 1.2rem 4rem; }
-        .hero-h1 { font-size: 1.9rem; line-height: 1.2; }
-        .hero-tag { font-size: 0.7rem; letter-spacing: 3px; }
-        .hero-sub { font-size: 0.95rem; }
-        .hero-line { margin-bottom: 2rem; }
-        .hero-stats { grid-template-columns: 1fr !important; }
-        .h-stat { border-right: none !important; border-bottom: 1px solid rgba(184,146,78,0.35); }
+        nav { padding: 0.7rem 0; }
+        .nav-inner { padding: 0 1rem; }
+        .nav-inner img { max-height: 48px; }
+        .nav-btn { font-size: 0.68rem; padding: 0.4rem 0.9rem; letter-spacing: 1px; }
+        .hero { padding: 6rem 1rem 3.5rem; min-height: auto; }
+        .hero-h1 { font-size: 1.85rem; line-height: 1.2; }
+        .hero-tag { font-size: 0.68rem; letter-spacing: 2.5px; margin-bottom: 1.2rem; }
+        .hero-sub { font-size: 0.9rem; line-height: 1.75; margin-bottom: 1.5rem; }
+        .hero-line { margin-bottom: 1.5rem; }
+        .hero-stats { grid-template-columns: 1fr !important; margin-top: 2rem; }
+        .h-stat { border-right: none !important; border-bottom: 1px solid rgba(184,146,78,0.35); padding: 1.3rem 1rem; }
         .h-stat:last-child { border-bottom: none; }
         .h-num { font-size: 2rem; }
-        .sec-inner { padding: 4rem 1.2rem; }
-        .sec-title { font-size: 2rem; }
-        .problem-grid, .sol-grid, .step4-wrap, .market-grid, .market-stats, .bm-grid, .comp-grid, .gtm-grid, .gtm-stats, .fin-grid, .ask-grid, .roi-grid { grid-template-columns: 1fr !important; }
+        .sec-inner { padding: 3rem 1rem; }
+        .sec-title { font-size: 1.8rem; line-height: 1.2; }
+        .sec-label { font-size: 0.7rem; letter-spacing: 3px; }
+        .sec-body { font-size: 0.93rem; }
+        /* All multi-col grids → 1 col on mobile */
+        .problem-grid, .sol-grid, .step4-wrap, .market-grid, .market-stats,
+        .bm-grid, .comp-grid, .gtm-grid, .gtm-stats, .fin-grid, .ask-grid, .roi-grid { grid-template-columns: 1fr !important; }
         .step4-steps { grid-template-columns: 1fr !important; }
-        .traction-grid, .metrics-grid, .met-secondary { grid-template-columns: 1fr 1fr !important; }
+        /* Traction & metrics: 2 cols is fine on mobile */
+        .traction-grid { grid-template-columns: 1fr 1fr !important; }
+        .metrics-grid { grid-template-columns: 1fr 1fr !important; }
+        .met-secondary { grid-template-columns: 1fr 1fr 1fr !important; }
         .team-grid { grid-template-columns: repeat(2,1fr) !important; }
         .team-more { grid-template-columns: repeat(3,1fr) !important; }
+        /* Fix stat borders in dark sections */
         .ms, .gs { border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.08); }
-        .close-sec { padding: 5rem 1.5rem; }
-        .close-inner h2 { font-size: 2.2rem; }
-        .close-btn { padding: 0.9rem 2rem; font-size: 0.78rem; }
-        footer { padding: 2rem 1.5rem; }
+        .ms:last-child, .gs:last-child { border-bottom: none; }
+        /* Problem cards */
+        .p-card { padding: 2rem 1.2rem; }
+        .p-stat { font-size: 2.8rem; }
+        /* Solution cards */
+        .sol-card { padding: 1.8rem 1.2rem; }
+        /* Step photo */
+        .step4-photo { height: 220px; object-fit: cover; }
+        /* Market */
+        .m-card { padding: 1.8rem 1.2rem; }
+        /* BM example */
+        .bm-example { padding: 1.5rem 1.2rem; }
+        /* Traction */
+        .t-card { padding: 1.5rem 1rem; }
+        .t-num { font-size: 2rem; }
+        .traction-cta { padding: 1.5rem 1.2rem; }
+        .traction-cta p { font-size: 1rem; }
+        /* Financials */
+        .fin-card { padding: 1.8rem 1.2rem; }
+        .fin-num { font-size: 2rem; }
+        .fin-link { width: 100%; justify-content: center; text-align: center; box-sizing: border-box; }
+        /* Metrics */
+        .met { padding: 1.5rem 0.8rem; }
+        .met-val { font-size: 1.5rem; }
+        .met-lbl { font-size: 0.68rem; }
+        /* Ask */
+        .ask-left h2 { font-size: 1.7rem; }
+        .ask-box { padding: 1.5rem 1.2rem; }
+        /* ROI */
+        .roi-card { padding: 1.8rem 1rem; }
+        .roi-num { font-size: 2.2rem; }
+        /* Close section */
+        .close-sec { padding: 4rem 1rem; }
+        .close-inner h2 { font-size: 1.9rem; }
+        .close-inner p { font-size: 0.93rem; margin-bottom: 2rem; }
+        .close-btn { padding: 0.9rem 1.8rem; font-size: 0.75rem; letter-spacing: 1.5px; }
+        .close-contacts { gap: 0.6rem; margin-top: 2rem; }
+        .close-contacts a { font-size: 0.9rem; }
+        /* Footer */
+        footer { padding: 2rem 1rem; }
+        /* Callout */
+        .callout { padding: 2rem 1.2rem; }
+        .callout p { font-size: 0.93rem; }
+        /* Work CTA */
+        .work-cta-wrap { padding: 2rem 1rem; }
+        /* Comp cards */
+        .comp-card { padding: 1.8rem 1.2rem; }
+        /* GTM cards */
+        .gtm-card { padding: 1.8rem 1.2rem; }
+        /* Team cards */
+        .team-card { padding: 1.2rem; }
+        .team-icon { font-size: 1.5rem; margin-bottom: 0.6rem; }
+        .team-role { font-size: 0.68rem; letter-spacing: 1.5px; }
+        /* Dist note */
+        .dist-note { padding: 1.8rem 1.2rem; }
+        .dist-note p { font-size: 0.93rem; }
+        /* BM grid */
+        .bm-left h3 { font-size: 0.9rem; }
+        .arrow-list li { font-size: 0.9rem; }
       }
     </style>
   </head>
@@ -448,17 +520,13 @@
       <div class="close-inner">
         <h2 class="serif">Ready to Partner?</h2>
         <p>Immaculate Home Builders is seeking aligned capital partners for a revolving facility designed to scale an already-proven operation into new markets.</p>
-        <a href="mailto:corey@ihbremodelers.com" class="close-btn">Connect With Us</a>
+        <a href="/cdn-cgi/l/email-protection#fd9e928f9884bd94959f8f989092999891988f8ed39e9290" class="close-btn">Connect With Us</a>
         <div class="close-contacts">
-          <a href="mailto:corey@ihbremodelers.com">corey@ihbremodelers.com</a>
+          <a href="/cdn-cgi/l/email-protection#26454954435f664f4e4454434b4942434a4354550845494b"><span class="__cf_email__" data-cfemail="47242835223e072e2f2535222a2823222b2235346924282a">[email&#160;protected]</span></a>
           <a href="https://www.ihbremodelers.com" target="_blank" rel="noopener noreferrer">www.ihbremodelers.com</a>
           <a href="tel:+14102583792">410-258-3792</a>
         </div>
       </div>
     </section>
     <footer>
-      <p>© 2025 Immaculate Home Builders · All Rights Reserved</p>
-      <a href="https://www.ihbremodelers.com" target="_blank" rel="noopener noreferrer" class="footer-link">www.ihbremodelers.com</a>
-    </footer>
-  </body>
-</html>
+      <p>© 2025 Immaculate Home Builders ·
